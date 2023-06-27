@@ -23,8 +23,8 @@ import {
   CommandItem,
 } from '@/components/ui/command'
 import { Button } from '@/components/ui/button'
-import { CarSearchParams, carSelector } from '@/lib/redux/carSlice'
-import { useAppSelector } from '@/lib/redux/hooks'
+import { CarSearchParams, carSelector, updateParams } from '@/lib/redux/carSlice'
+import { useAppSelector, useAppDispatch } from '@/lib/redux/hooks'
 
 interface manufacturerData {
   icon?: React.JSX.Element
@@ -63,10 +63,10 @@ const FormFieldCombobox: FC<FormFieldComboboxProps> = ({
   withSearch = true,
   setValue
 }) => {
-
+  const dispatch = useAppDispatch()
   const { manufacturer: manufacturerValue } = useAppSelector(carSelector)
 
-  const findValue = (data: manufacturerData[], value: string, fn: (str1: string, str2: string) => boolean): manufacturerData | undefined => {
+  const findValue = (data: manufacturerData[], value: string | undefined, fn: (str1: string | undefined, str2: string | undefined) => boolean): manufacturerData | undefined => {
     return data.find((item) => fn(item.value, value))
   }
 

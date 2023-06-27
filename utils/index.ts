@@ -2,7 +2,7 @@ import { CarSearchParams } from "@/lib/redux/carSlice";
 import { CarProps } from "@/types";
 
 // Genearl functions
-export const isEqualStrings = (str1: string , str2: string): boolean => {
+export const isEqualStrings = (str1: string | undefined , str2: string | undefined): boolean => {
   if (str1 && str2) return str1.toLowerCase() === str2.toLowerCase()
   return false
 }
@@ -22,8 +22,7 @@ export const fetchCars = async (pageParam = 1, searchParams: CarSearchParams) =>
     if (manufacturer === 'any_manufacturer') manufacturer = ''
     if (fuel === 'fuel' || fuel === 'any_type') fuel = ''
     if (year === 'any_year') year = ''
-
-    model = model.toLowerCase()
+    if (model) model = model.toLowerCase()
     const initial_limit = 8
     const count = pageParam * initial_limit
 

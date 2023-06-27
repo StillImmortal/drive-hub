@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { FaCarSide } from 'react-icons/fa'
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2'
@@ -40,12 +40,6 @@ const SearchBar = () => {
       dispatch(updateParams(inputs))
     }
   }
-
-  useEffect(() => {
-    Object.entries(state).map(([key, value]) => {
-      form.setValue(key as keyof CarSearchParams, value)
-    })
-  }, [Object.values(state)])
 
   return (
     <div className='home__filters'>

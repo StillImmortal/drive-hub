@@ -1,7 +1,4 @@
-import React from 'react'
-
 import { CarCatalogue, Hero, LogoSlider } from '@/components/home'
-import SkeletonCarCard from '@/components/custom/SkeletonCarCard'
 
 const Home = async () => {
 

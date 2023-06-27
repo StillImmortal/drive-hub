@@ -2,10 +2,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "@/lib/redux/store";
 
 export interface CarSearchParams {
-  manufacturer: string
-  model: string
-  fuel: string
-  year: string
+  manufacturer?: string
+  model?: string
+  fuel?: string
+  year?: string
 }
 
 const initialState: CarSearchParams = {
@@ -20,7 +20,10 @@ export const carSlice = createSlice({
   initialState,
   reducers: {
     updateParams: (state, action: PayloadAction<CarSearchParams>) => {
-      return action.payload
+      return {
+        ...state,
+        ...action.payload
+      }
     }
   }
 })
