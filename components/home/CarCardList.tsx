@@ -1,6 +1,6 @@
 "use client"
 
-import { Fragment, useEffect } from 'react'
+import { Fragment } from 'react'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { HiArrowUp } from "react-icons/hi"
 

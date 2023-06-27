@@ -1,7 +1,5 @@
 "use client"
 
-import sc from "smoothscroll-polyfill"
-import {useEffect} from 'react'
 import Image from 'next/image'
 import { FaCar } from "react-icons/fa"
 
@@ -9,10 +7,6 @@ import { CustomButton } from '@/components/custom'
 import { handleScroll } from '@/utils'
 
 const Hero = () => {
-  useEffect(() => {
-    sc.polyfill()
-  }, [])
-
   return (
     <div className="hero">
       <div className="flex-1 pt-28 sm:pt-36 xl:pt-48 3xl:pt-60 padding-x">
